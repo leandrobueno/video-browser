@@ -1,11 +1,33 @@
-<template>
-    <div >
-        Hi there!
-    </div>
-</template>
-
 <script>
+import axios from "axios";
+const API_KEY = 'AIzaSyCsXzpSZc-nQUHNbnpxJsFaBhDcoa0FpTA';
+import SearchBar from "./components/SearchBar";
+import VideoList from "./components/VideoList";
+
 export default {
-    name: 'App'
+  name: "App",
+  components: {
+    SearchBar,
+    VideoList
+  },
+  methods: {
+    onTermChange(searchTerm) {
+        axios.get('https://www.googleapis.com/youtube/v3/search', {
+            params: {
+                key: API_KEY,
+                type: 'video',
+                part: 'snippet',
+                q: searchTerm                
+            }
+        }).then(r => r.data.data);
+    },
+  },
 };
 </script>
+
+<template>
+  <div>
+    <SearchBar @termChange="onTermChange"></SearchBar>
+    <VideoList></VideoList>
+  </div>
+</template>
