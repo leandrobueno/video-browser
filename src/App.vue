@@ -3,7 +3,8 @@ import axios from "axios";
 import SearchBar from "./components/SearchBar";
 import VideoList from "./components/VideoList";
 
-const API_KEY = "AIzaSyCsXzpSZc-nQUHNbnpxJsFaBhDcoa0FpTA";
+// const API_KEY = "AIzaSyCsXzpSZc-nQUHNbnpxJsFaBhDcoa0FpTA";
+const API_KEY = "AIzaSyDfpYYUzM1zC0I_Mz2XV7Sf0TaTmnAHtw8";
 
 export default {
   name: "App",
@@ -33,7 +34,7 @@ export default {
 </script>
 
 <template>
-  <div>
+  <div class="container">
     <SearchBar @termChange="onTermChange"></SearchBar>
     <VideoList :videos="videos"></VideoList>
   </div>

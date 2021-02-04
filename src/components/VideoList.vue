@@ -11,18 +11,25 @@ export default {
   data() {
     return {};
   },
+  methods: {
+      videoSelect() {
+
+      }
+  }
 };
 </script>
 
 <template>
-  <ul>
-      <VideoListItem 
+  <ul class="list-group">
+      <VideoListItem      
         v-for="video in videos"
         :video="video"
-        :key="video.etag">
+        :key="video.etag"
+        @videoSelect="videoSelect">
       </VideoListItem>
   </ul>
 </template>
 
 <style scoped>
+
 </style>
